@@ -1,8 +1,8 @@
-function Application() {
+function Application(props) {
   return (
     <div className="scoreboard">
       <div className="header">
-        <h1>Scoreboard</h1>
+        <h1>{props.title}</h1>
       </div>
 
       <div className="players">
@@ -22,13 +22,13 @@ function Application() {
 
         <div className="player">
           <div className="player-name">
-            Jim Hoskins
+            Andrew Chalkey
           </div>
 
           <div className="score">
             <div className="counter">
               <button className="counter-action decrement"> - </button>
-              <div className="counter-score">30</div>
+              <div className="counter-score">28</div>
               <button className="counter-action increment"> + </button>
             </div>
           </div>
@@ -51,4 +51,13 @@ function Application() {
     </div>
   );
 }
+
+Application.propTypes = {
+  title: React.PropTypes.string.isRequired,
+};
+
+Application.defaultProps = {
+  title: "Scoreboard",
+}
+
 ReactDOM.render(<Application />, document.getElementById('container'));
